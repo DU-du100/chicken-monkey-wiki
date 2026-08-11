@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鸡与猴 · 趣味百科 — 每天认识多一点</title>
+  <meta name="description" content="专注于鸡和猴子的科普网站，涵盖品种、习性、智力、文化等方方面面，每日持续更新。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== 顶部导航栏 ===== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-icon">🐔</span>
+      <span class="logo-text">鸡与猴<sup>百科</sup></span>
+      <span class="logo-icon">🐒</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#hero" class="nav-link active">首页</a>
+      <a href="#chicken" class="nav-link">🐔 鸡的百科</a>
+      <a href="#monkey" class="nav-link">🐒 猴子百科</a>
+      <a href="#daily" class="nav-link">📅 每日趣闻</a>
+      <a href="#news" class="nav-link">📰 最新资讯</a>
+      <a href="#compare" class="nav-link">⚔️ 鸡猴大比拼</a>
+      <a href="#quiz" class="nav-link">🧠 趣味问答</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero 首屏 ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="floating-emoji e1">🐔</div>
+    <div class="floating-emoji e2">🐒</div>
+    <div class="floating-emoji e3">🥚</div>
+    <div class="floating-emoji e4">🍌</div>
+    <div class="floating-emoji e5">🐣</div>
+    <div class="floating-emoji e6">🌴</div>
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="title-chicken">鸡</span>
+      <span class="title-vs">与</span>
+      <span class="title-monkey">猴</span>
+    </h1>
+    <p class="hero-subtitle">从农场到丛林 · 从羽毛到毛发 · 每天认识多一点</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="500">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">鸡的品种</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="260">0</span><span class="stat-plus">+</span>
+        <span class="stat-label">灵长类物种</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="365">0</span>
+        <span class="stat-label">天持续更新</span>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#chicken" class="btn btn-primary">探索鸡的世界 🐔</a>
+      <a href="#monkey" class="btn btn-secondary">走进猴的王国 🐒</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>向下滚动探索</span>
+    <div class="mouse"><div class="wheel"></div></div>
+  </div>
+</section>
+
+<!-- ===== 每日趣闻（置顶卡片） ===== -->
+<section class="daily-banner" id="daily-banner">
+  <div class="container">
+    <div class="daily-card" id="dailyCard">
+      <div class="daily-badge">📅 今日科普 · <span id="todayDate"></span></div>
+      <div class="daily-content">
+        <div class="daily-emoji" id="dailyEmoji">🐔</div>
+        <div class="daily-text">
+          <h3 id="dailyTitle">加载中...</h3>
+          <p id="dailyBody">正在获取今日趣闻...</p>
+          <span class="daily-tag" id="dailyTag">鸡</span>
+        </div>
+      </div>
+      <button class="daily-refresh" id="dailyRefresh" title="换一条">🔄</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 鸡的百科 ===== -->
+<section class="encyclopedia chicken-section" id="chicken">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">🐔</div>
+      <h2 class="section-title">鸡的百科全书</h2>
+      <p class="section-desc">从红原鸡到白羽肉鸡，从打鸣到下蛋，全方位了解地球上数量最多的鸟类</p>
+    </div>
+
+    <!-- 鸡 - 标签导航 -->
+    <div class="tab-bar" id="chickenTabs">
+      <button class="tab-btn active" data-tab="chicken-origin">起源驯化</button>
+      <button class="tab-btn" data-tab="chicken-breeds">品种大全</button>
+      <button class="tab-btn" data-tab="chicken-biology">生理特征</button>
+      <button class="tab-btn" data-tab="chicken-behavior">行为习性</button>
+      <button class="tab-btn" data-tab="chicken-intelligence">鸡的智力</button>
+      <button class="tab-btn" data-tab="chicken-culture">鸡与文化</button>
+      <button class="tab-btn" data-tab="chicken-facts">冷知识</button>
+    </div>
+
+    <!-- 鸡 - 起源驯化 -->
+    <div class="tab-panel active" id="chicken-origin">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">🧬</div>
+          <h3>祖先：红原鸡</h3>
+          <p>家鸡的祖先是<strong>红原鸡</strong>（Gallus gallus），一种生活在南亚和东南亚热带雨林中的野生鸟类。约 <strong>8000 年前</strong>，人类开始驯化红原鸡，最初可能是为了斗鸡和宗教祭祀，后来才逐渐发展为肉用和蛋用。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌍</div>
+          <h3>驯化起源地</h3>
+          <p>最新考古证据显示，鸡的驯化可能同时发生在<strong>中国北方</strong>、<strong>印度</strong>和<strong>东南亚</strong>多个地区。中国河北磁山遗址出土了约 8000 年前的鸡骨化石，是目前已知最早的驯化鸡证据之一。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌏</div>
+          <h3>全球扩散</h3>
+          <p>鸡随着人类贸易和迁徙扩散到全世界。波斯帝国时期传入中东，古希腊时期传入欧洲。大航海时代后，鸡被带到美洲和大洋洲。如今，全球鸡的数量超过 <strong>250 亿只</strong>，是地球上数量最多的陆生脊椎动物。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">📜</div>
+          <h3>从祭祀到餐桌</h3>
+          <p>在古代，公鸡因其好斗天性被用于<strong>斗鸡</strong>，这项活动在亚洲流传数千年。古罗马人用鸡进行占卜——观察鸡吃谷物的行为来预测吉凶。随着选育技术发展，鸡逐渐从宗教符号变成了全球最重要的蛋白质来源。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 品种大全 -->
+    <div class="tab-panel" id="chicken-breeds">
+      <div class="breed-grid">
+        <div class="breed-card">
+          <div class="breed-emoji">🐔</div>
+          <h4>白羽肉鸡</h4>
+          <p class="breed-origin">📍 全球</p>
+          <p>现代养殖业的主力品种，生长速度极快，45天即可出栏。全球每年消费超过 <strong>600 亿只</strong>。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐓</div>
+          <h4>海兰褐壳蛋鸡</h4>
+          <p class="breed-origin">📍 美国</p>
+          <p>世界上产蛋量最高的品种之一，每年可产 <strong>300+ 枚</strong>蛋，蛋壳呈褐色。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐔</div>
+          <h4>乌骨鸡（丝羽乌骨鸡）</h4>
+          <p class="breed-origin">📍 中国</p>
+          <p>中国特有的药用鸡种，骨骼乌黑，丝状羽毛。在中医中被视为滋补佳品，历史悠久。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐓</div>
+          <h4>九斤黄</h4>
+          <p class="breed-origin">📍 中国上海</p>
+          <p>中国著名肉用鸡种，体格硕大，成年公鸡可达 4.5 公斤。19世纪传入欧美，曾风靡一时。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐔</div>
+          <h4>马来斗鸡</h4>
+          <p class="breed-origin">📍 东南亚</p>
+          <p>体型高挑、性格凶猛的古老品种，站立时近 90 厘米高。是许多现代鸡品种的祖先之一。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐓</div>
+          <h4>波兰鸡</h4>
+          <p class="breed-origin">📍 荷兰/波兰</p>
+          <p>头上长有华丽的冠羽，像一个"毛球"顶在头上，外形极具观赏性，是受欢迎的观赏鸡种。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐔</div>
+          <h4>苏门答腊鸡</h4>
+          <p class="breed-origin">📍 印尼苏门答腊</p>
+          <p>全身黑色泛绿光，尾巴修长如瀑布，是世界上最美丽的鸡品种之一，常用于展览。</p>
+        </div>
+        <div class="breed-card">
+          <div class="breed-emoji">🐓</div>
+          <h4>矮脚鸡（矮脚茶花鸡）</h4>
+          <p class="breed-origin">📍 中国云南</p>
+          <p>腿极短，行走时身体几乎贴地。体型小巧可爱，既可观赏又可食用。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 生理特征 -->
+    <div class="tab-panel" id="chicken-biology">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">👁️</div>
+          <h3>超强的视觉</h3>
+          <p>鸡拥有<strong>四色视觉</strong>（人类只有三色），能看到紫外光！这意味着它们能看到人类看不到的颜色。鸡的眼睛位于头部两侧，视野可达 <strong>300 度</strong>，几乎能看到身后。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">👂</div>
+          <h3>敏锐的听觉</h3>
+          <p>鸡的听觉范围比人类更广，能听到低至 60 赫兹的声音。小鸡在蛋中就能听到母鸡的叫声，并在出壳前就开始与母鸡"对话"。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🪶</div>
+          <h3>羽毛的秘密</h3>
+          <p>一只成年鸡大约有 <strong>7000-9000 根羽毛</strong>。羽毛不仅用于飞行和保暖，还用于求偶展示和社会等级标识。鸡每年会换羽一次，期间产蛋量会下降。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🥚</div>
+          <h3>产蛋的奥秘</h3>
+          <p>母鸡产一枚蛋大约需要 <strong>24-26 小时</strong>。蛋壳的颜色由品种基因决定，与营养价值无关。一只高产蛋鸡一年可产超过 300 枚蛋，远超野生祖先的 10-15 枚。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌡️</div>
+          <h3>体温调节</h3>
+          <p>鸡的正常体温约 <strong>40-42°C</strong>，比人类高。它们没有汗腺，通过张嘴喘气、展开翅膀来散热。鸡冠和肉垂也有帮助散热的功能，这就是为什么热带品种的鸡冠更大。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🍽️</div>
+          <h3>独特的消化系统</h3>
+          <p>鸡没有牙齿，靠<strong>肌胃（砂囊）</strong>配合小石子磨碎食物。食物依次经过嗉囊（储存）→ 腺胃（消化酶）→ 肌胃（研磨）→ 小肠（吸收），整个消化过程约 <strong>2-3 小时</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 行为习性 -->
+    <div class="tab-panel" id="chicken-behavior">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">🌅</div>
+          <h3>打鸣的秘密</h3>
+          <p>公鸡打鸣并不只是在天亮时——它们一天中随时都会打鸣，但黎明时分最频繁。研究发现，领头公鸡有<strong>优先打鸣权</strong>，其他公鸡会按社会等级顺序依次跟进。打鸣是宣示领地和统领地位的方式。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">👑</div>
+          <h3>啄序等级</h3>
+          <p>"啄序"（Pecking Order）一词就来源于鸡群！鸡群内部有严格的等级制度，高等级的鸡可以啄低等级的鸡，反之则不行。这个等级一旦建立就相对稳定，新成员加入时会引发激烈争斗。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">💅</div>
+          <h3>沙浴行为</h3>
+          <p>鸡喜欢在干燥的沙土中刨坑打滚，这叫<strong>沙浴</strong>。沙浴可以清洁羽毛、去除寄生虫、保持羽毛油脂平衡。即使家养鸡有水，也会本能地进行沙浴。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎵</div>
+          <h3>丰富的叫声</h3>
+          <p>鸡至少有 <strong>24 种不同的叫声</strong>，每种都有特定含义：发现食物时的"咕咕"声、发现空中掠食者时的尖叫、下蛋后的"咯咯"声等。母鸡甚至能通过不同叫声告诉小鸡威胁来自空中还是地面。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌙</div>
+          <h3>睡眠习性</h3>
+          <p>鸡是昼行性动物，天黑后就会上栖木休息。它们喜欢<strong>睡在高处</strong>，这是野外生存遗留的本能——高处可以躲避地面掠食者。鸡在睡眠中会经历类似 REM 的睡眠阶段。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🐣</div>
+          <h3>母鸡育雏</h3>
+          <p>母鸡在孵化期间会与蛋中的小鸡"对话"——它会发出轻柔的咕咕声，小鸡在壳内回应。小鸡出壳后能立即识别母亲的声音，跟随母亲觅食和学习生存技能，这个"印记"过程只需几小时。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 智力 -->
+    <div class="tab-panel" id="chicken-intelligence">
+      <div class="content-grid">
+        <div class="info-card highlight">
+          <div class="card-icon">🧠</div>
+          <h3>比你想的聪明得多</h3>
+          <p>研究表明，鸡的智力水平相当于<strong>人类 4-5 岁儿童</strong>。它们能进行逻辑推理、自我控制、甚至展现一定程度的"同理心"。鸡的认知能力远超人们的一般认知。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🔢</div>
+          <h3>数学能力</h3>
+          <p>实验证明，刚孵化的小鸡就能区分<strong>多与少</strong>，它们会走向数量更多的物体。鸡还能进行简单的加减法运算，能力与猕猴相当。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🧩</div>
+          <h3>记忆与学习</h3>
+          <p>鸡能记住<strong>超过 100 张面孔</strong>（包括人类和同类），并能分辨出友善和有威胁的人。它们还能学习通过观察同伴行为来获取食物的位置。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎯</div>
+          <h3>自我控制</h3>
+          <p>在"棉花糖实验"式的实验中，鸡展现出了<strong>延迟满足</strong>的能力——它们愿意等待更长时间以获得更好的食物奖励，这种自我控制能力在动物界相当罕见。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🔮</div>
+          <h3>物体永久性</h3>
+          <p>鸡理解"物体永久性"——即知道被遮挡的物体仍然存在。这种认知能力在人类婴儿中约 8 个月才发展出来，而小鸡出壳后两天就具备。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">💭</div>
+          <h3>未来规划</h3>
+          <p>鸡能根据<strong>未来需求</strong>做出当前决策。研究发现，鸡会放弃眼前的食物，转而获取一个"钥匙"，以便之后打开装有更好食物的盒子——这表明它们具有某种程度的预见性思维。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 文化 -->
+    <div class="tab-panel" id="chicken-culture">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">🇨🇳</div>
+          <h3>中国十二生肖</h3>
+          <p>鸡是中国十二生肖之一，排名<strong>第十</strong>。属鸡的人被认为勤劳、守时、精明。在传统文化中，鸡象征吉祥——"鸡"与"吉"谐音，常作为年画和装饰的主题。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⚔️</div>
+          <h3>斗鸡文化</h3>
+          <p>斗鸡是一项有 <strong>3000 多年历史</strong>的古老活动，起源于亚洲，后传入希腊、罗马。在许多文化中，斗鸡不仅是一种娱乐，更是勇气和荣誉的象征。如今大部分国家已禁止斗鸡。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⏰</div>
+          <h3>时间守护者</h3>
+          <p>在没有闹钟的年代，公鸡是天然的"闹钟"。"闻鸡起舞"是中国成语，讲述祖逖和刘琨每天听到鸡叫就起床练剑的故事。鸡鸣代表着勤勉和自律。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌅</div>
+          <h3>太阳的使者</h3>
+          <p>在许多古代文化中，公鸡被视为太阳的象征和黎明的使者。古希腊神话中，公鸡献给<strong>光明之神阿波罗</strong>。日本神话中，鸡的叫声能引出天照大神从洞中出来，恢复世界光明。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎨</div>
+          <h3>艺术中的鸡</h3>
+          <p>从毕加索的雄鸡到中国水墨画中的"大吉图"，鸡是中外艺术中的常见主题。法国画家夏尔丹、中国画家徐悲鸿等都以画鸡闻名。鸡的形象出现在邮票、硬币和各种装饰品上。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🍲</div>
+          <h3>饮食文化</h3>
+          <p>鸡肉是全球消费量最大的肉类。美国的炸鸡、中国的白切鸡、日本的亲子丼、印度的咖喱鸡……每个文化都有标志性的鸡肉菜肴。鸡蛋更是全球厨房的基础食材。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 鸡 - 冷知识 -->
+    <div class="tab-panel" id="chicken-facts">
+      <div class="facts-list" id="chickenFactsList">
+        <!-- 由 JS 动态填充 -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 猴子百科 ===== -->
+<section class="encyclopedia monkey-section" id="monkey">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">🐒</div>
+      <h2 class="section-title">猴子百科全书</h2>
+      <p class="section-desc">从热带雨林到雪山之巅，从简单工具到复杂社会，揭秘我们最亲近的灵长类表亲</p>
+    </div>
+
+    <!-- 猴 - 标签导航 -->
+    <div class="tab-bar" id="monkeyTabs">
+      <button class="tab-btn active" data-tab="monkey-evolution">起源进化</button>
+      <button class="tab-btn" data-tab="monkey-species">主要种类</button>
+      <button class="tab-btn" data-tab="monkey-biology">生理特征</button>
+      <button class="tab-btn" data-tab="monkey-social">社会行为</button>
+      <button class="tab-btn" data-tab="monkey-intelligence">智力工具</button>
+      <button class="tab-btn" data-tab="monkey-culture">猴与文化</button>
+      <button class="tab-btn" data-tab="monkey-facts">冷知识</button>
+    </div>
+
+    <!-- 猴 - 起源进化 -->
+    <div class="tab-panel active" id="monkey-evolution">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">🧬</div>
+          <h3>灵长类的黎明</h3>
+          <p>最早的灵长类祖先出现在约 <strong>5500 万年前</strong>的古新世晚期。这些小型夜行性动物生活在树上，以昆虫和水果为食。它们逐渐发展出灵活的手指、立体视觉和较大的大脑——这些特征为后来猴类的演化奠定了基础。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌳</div>
+          <h3>新大陆猴 vs 旧大陆猴</h3>
+          <p>约 4000 万年前，猴类分为两大支系：<strong>新大陆猴</strong>（阔鼻类，分布在中南美洲）和<strong>旧大陆猴</strong>（狭鼻类，分布在非洲和亚洲）。新大陆猴有卷尾，旧大陆猴没有；它们的牙齿结构和社交方式也有显著差异。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🦏</div>
+          <h3>与猿的分家</h3>
+          <p>猴和猿虽然常被混为一谈，但它们在约 <strong>2500 万年前</strong>就已分道扬镳。最简单的区分：猴子<strong>有尾巴</strong>，猿没有。此外，猿的大脑更发达，智力更高。常见的猿包括黑猩猩、大猩猩和红毛猩猩。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🏔️</div>
+          <h3>非凡的适应力</h3>
+          <p>猴类演化出了惊人的适应能力。<strong>日本猕猴</strong>能生活在零下 20°C 的雪地中，是分布最北的灵长类（除人类外）。<strong>狮尾猴</strong>生活在印度高海拔雨林。从沙漠边缘到雪山之巅，猴类几乎遍布各种生态环境。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 主要种类 -->
+    <div class="tab-panel" id="monkey-species">
+      <div class="breed-grid">
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐒</div>
+          <h4>猕猴（恒河猴）</h4>
+          <p class="breed-origin">📍 亚洲广泛分布</p>
+          <p>分布最广的猴类之一，从阿富汗到中国都有。聪明且适应力强，是医学研究中最常用的灵长类。寿命可达 30 年。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐵</div>
+          <h4>金丝猴</h4>
+          <p class="breed-origin">📍 中国特有种</p>
+          <p>中国国家一级保护动物，拥有金色长毛和蓝色面孔。生活在高海拔森林中，以树叶和树皮为食，社群结构复杂。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐒</div>
+          <h4>卷尾猴</h4>
+          <p class="breed-origin">📍 中南美洲</p>
+          <p>新大陆猴中最聪明的种类之一，能使用石头砸开坚果和贝壳。被训练为<strong>猴助手</strong>，帮助瘫痪患者完成日常任务。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐵</div>
+          <h4>狒狒</h4>
+          <p class="breed-origin">📍 非洲</p>
+          <p>体型最大的猴类之一，雄性体重可达 40 公斤。拥有复杂的社会结构，群体可达上百只。会协作捕食，甚至能驱赶豹子。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐒</div>
+          <h4>日本猕猴</h4>
+          <p class="breed-origin">📍 日本</p>
+          <p>又称"雪猴"，以冬天泡温泉而闻名。它们会学会在温泉中取暖，还会把红薯拿到海水中清洗——这是动物界著名的"文化传递"案例。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐵</div>
+          <h4>疣猴（黑白疣猴）</h4>
+          <p class="breed-origin">📍 非洲</p>
+          <p>黑白相间的长毛，面部有白色"胡子"。以树叶为食，拥有特殊的多室胃来消化纤维素。优雅的跳跃者。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐒</div>
+          <h4>长鼻猴</h4>
+          <p class="breed-origin">📍 婆罗洲</p>
+          <p>雄性拥有巨大的鼻子，随年龄增长越来越长。大鼻子被认为是性选择的结果——鼻子越大越受雌性青睐。善于游泳。</p>
+        </div>
+        <div class="breed-card monkey">
+          <div class="breed-emoji">🐵</div>
+          <h4>吼猴</h4>
+          <p class="breed-origin">📍 中南美洲</p>
+          <p>地球上叫声最响的动物之一，吼叫声可在 <strong>5 公里外</strong>听到。它们用吼叫来宣示领地，避免直接冲突。以树叶为主食。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 生理特征 -->
+    <div class="tab-panel" id="monkey-biology">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">👁️</div>
+          <h3>朝前的双眼</h3>
+          <p>猴子的双眼都朝前，形成<strong>立体视觉</strong>（双目视觉）。这让它们能精确判断距离——对于在树枝间跳跃至关重要。大多数猴类拥有与人类类似的<strong>三色视觉</strong>，能分辨红绿色。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">✋</div>
+          <h3>灵活的双手</h3>
+          <p>猴子拥有<strong>对生拇指</strong>（拇指与其他四指相对），能精确抓握物体。新大陆猴的尾巴也有抓握功能，被称为"第五只手"。这种灵活性是灵长类的标志性特征。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🦷</div>
+          <h3>牙齿与饮食</h3>
+          <p>猴子有 32 颗牙齿（与人相同），包括锋利的犬齿。旧大陆猴的犬齿尤其发达，雄性的犬齿像匕首一样，用于战斗和威慑。不同猴类的饮食差异很大——从纯素食到偶尔吃小动物。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🧠</div>
+          <h3>发达的大脑</h3>
+          <p>相对于体型，猴子的大脑比大多数哺乳动物大得多。大脑皮层有丰富的褶皱，尤其是与<strong>社会认知</strong>和<strong>问题解决</strong>相关的区域。猕猴的大脑结构被深入研究，是神经科学的重要模型。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🐕</div>
+          <h3>尾巴的多功能</h3>
+          <p>猴子的尾巴用途多样：<strong>平衡</strong>（在树枝间跳跃时）、<strong>抓握</strong>（新大陆猴的卷尾）、<strong>通讯</strong>（狒狒用尾巴表达情绪）。有些猴子的尾巴比身体还长。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌡️</div>
+          <h3>体温与代谢</h3>
+          <p>猴子的体温约 <strong>38-39°C</strong>。为了适应寒冷环境，日本猕猴会长出厚厚的冬毛。猕猴在冬天泡温泉不仅是为了保暖，也是一种社交活动——等级高的猴有优先泡温泉的特权。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 社会行为 -->
+    <div class="tab-panel" id="monkey-social">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">👥</div>
+          <h3>复杂的社会结构</h3>
+          <p>大多数猴类是高度社会化的动物。狒狒群体可达<strong>上百只</strong>，有严格的等级制度。猕猴群体通常由一只"猴王"统领，雌雄均有各自的等级线。社会地位决定了获取食物和交配的优先权。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🤝</div>
+          <h3>互相理毛</h3>
+          <p>理毛是猴子社交的核心活动，远超清洁功能。通过理毛，猴子<strong>建立联盟、缓解紧张、巩固地位</strong>。研究发现，低等级猴会主动给高等级猴理毛以换取保护，这本质上是一种"社交货币"。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">📢</div>
+          <h3>丰富的通讯方式</h3>
+          <p>猴子使用声音、面部表情、身体姿态和气味等多种方式交流。猕猴有至少 <strong>30 种不同的叫声</strong>。它们能识别群体中每个成员的声音，甚至能区分"敌人来了"和"有食物"的不同警报。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⚖️</div>
+          <h3>公平感与道德雏形</h3>
+          <p>著名的"不平等厌恶"实验中，卷尾猴在看到同伴做同样任务却得到更好奖励时，会拒绝自己的奖励甚至扔掉它。这表明猴子具有<strong>公平感</strong>，这是道德演化的基础。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">👶</div>
+          <h3>育儿与社会化</h3>
+          <p>猴子的幼崽需要很长时间学习生存技能。母猴会携带幼崽数月到数年。年轻雌猴经常"借"别人的幼崽来练习照顾——这是一种类似人类社会实习的行为。幼猴通过游戏学习社会规则。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⚔️</div>
+          <h3>群体间的冲突</h3>
+          <p>不同猴群之间会发生领地争端。狒狒群体间的冲突有时非常激烈，甚至导致伤亡。但猴子也展现<strong>和解行为</strong>——冲突后双方会互相理毛来修复关系，这与人类"道歉和好"的行为惊人地相似。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 智力与工具 -->
+    <div class="tab-panel" id="monkey-intelligence">
+      <div class="content-grid">
+        <div class="info-card highlight">
+          <div class="card-icon">🔧</div>
+          <h3>工具使用者</h3>
+          <p>猴子是少数能使用工具的动物。<strong>卷尾猴</strong>会用石头砸开坚果，甚至会提前选择合适大小和重量的石头。<strong>猕猴</strong>会用石头挖掘根茎。有些猴子还能用树枝探取白蚁——这种技能通过观察和学习在群体中传播。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🌊</div>
+          <h3>文化传递</h3>
+          <p>日本幸岛猕猴的"洗红薯"行为是动物文化最著名的案例。1953 年，一只年轻雌猴开始把红薯拿到海水中清洗。这个习惯逐渐在群体中传播——先是同龄猴学会，然后是母系亲属，最后蔓延全群。这种行为被定义为<strong>非人类的文化</strong>。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🧮</div>
+          <h3>数学与记忆</h3>
+          <p>猕猴能学习数字 0-9 并按大小排序。在记忆测试中，猕猴的<strong>短时记忆</strong>甚至优于人类——它们能记住屏幕上闪过的一串数字的位置和顺序，速度和准确度令研究者震惊。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🪞</div>
+          <h3>自我意识</h3>
+          <p>在"镜子测试"中，大部分猴类无法通过——它们不认为镜中的影像是自己。但猕猴经过训练后可以学会识别镜中的自己。这表明猴子的自我意识虽不如猿类，但并非完全缺失。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎭</div>
+          <h3>欺骗与策略</h3>
+          <p>猴子会进行<strong>战术欺骗</strong>。研究发现，低等级雄猴有时会假装发现捕食者发出假警报，趁其他猴逃跑时偷偷与雌猴交配。这种"说谎"行为表明它们能理解他人的心理状态。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎯</div>
+          <h3>计划与决策</h3>
+          <p>猕猴在面对不确定情境时能进行<strong>风险评估</strong>。它们会在安全和回报之间权衡，选择最优策略。这种决策能力与人类大脑的前额叶皮层功能相似，使猕猴成为研究人类决策的重要模型。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 文化 -->
+    <div class="tab-panel" id="monkey-culture">
+      <div class="content-grid">
+        <div class="info-card">
+          <div class="card-icon">🇨🇳</div>
+          <h3>孙悟空</h3>
+          <p>中国文化中最著名的猴子形象非<strong>孙悟空</strong>莫属。这只从石头中蹦出来的石猴，大闹天宫、护送唐僧西天取经，是《西游记》的灵魂角色。孙悟空代表了反抗精神、智慧与忠诚的统一。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🐵</div>
+          <h3>十二生肖</h3>
+          <p>猴是中国十二生肖之第九位。属猴的人被认为聪明、灵活、机敏、幽默。在中国民间，"猴"与"侯"谐音，因此猴子常被画在马上，寓意"马上封侯"。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🙏</div>
+          <h3>印度教中的猴神</h3>
+          <p>在印度教中，<strong>哈努曼</strong>（Hanuman）是最受崇敬的猴神。他是一只拥有超凡力量的神猴，忠于罗摩王子。有学者认为，哈努曼是孙悟空形象的灵感来源之一。印度各地都有哈努曼庙。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🎭</div>
+          <h3>"三不猿"</h3>
+          <p>"非礼勿视，非礼勿听，非礼勿言"——三只分别捂住眼睛、耳朵和嘴巴的猴子，是广为人知的形象。这个概念源于日本日光东照宫的<strong>三猿雕刻</strong>，体现了儒家"慎言慎行"的思想。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🔬</div>
+          <h3>科学与太空先锋</h3>
+          <p>猕猴是医学和空间科学的重要贡献者。1959 年，一只名叫<strong>阿贝尔</strong>的猕猴乘坐美国火箭进入太空并安全返回。猕猴为疫苗开发、神经科学和心理学研究做出了巨大贡献。</p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⚠️</div>
+          <h3>保护现状</h3>
+          <p>全球约有 <strong>60%</strong> 的灵长类物种面临灭绝威胁。栖息地丧失是最大威胁——热带雨林正以惊人速度消失。金丝猴、狮尾猴等物种已被列为濒危。保护猴子，也是保护我们自己最亲近的 relatives。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 猴 - 冷知识 -->
+    <div class="tab-panel" id="monkey-facts">
+      <div class="facts-list" id="monkeyFactsList">
+        <!-- 由 JS 动态填充 -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 鸡猴大比拼 ===== -->
+<section class="compare-section" id="compare">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">⚔️</div>
+      <h2 class="section-title">鸡猴大比拼</h2>
+      <p class="section-desc">当农场之王遇上丛林智者，谁更胜一筹？</p>
+    </div>
+
+    <div class="vs-container">
+      <!-- 鸡方 -->
+      <div class="vs-side chicken-side">
+        <div class="vs-avatar">🐔</div>
+        <h3>鸡</h3>
+        <ul class="vs-stats">
+          <li><strong>全球数量：</strong>250亿+</li>
+          <li><strong>智商相当：</strong>4-5岁儿童</li>
+          <li><strong>驯化历史：</strong>约8000年</li>
+          <li><strong>记忆面孔：</strong>100+张</li>
+          <li><strong>视觉：</strong>四色视觉（含紫外）</li>
+          <li><strong>叫声种类：</strong>24种</li>
+          <li><strong>特殊技能：</strong>天亮打鸣</li>
+        </ul>
+      </div>
+
+      <!-- VS 中央 -->
+      <div class="vs-center">
+        <div class="vs-badge">VS</div>
+        <div class="vs-vs-text">VS</div>
+      </div>
+
+      <!-- 猴方 -->
+      <div class="vs-side monkey-side">
+        <div class="vs-avatar">🐒</div>
+        <h3>猴</h3>
+        <ul class="vs-stats">
+          <li><strong>物种数量：</strong>260+种</li>
+          <li><strong>智商相当：</strong>接近猿类</li>
+          <li><strong>分化历史：</strong>约4000万年</li>
+          <li><strong>工具使用：</strong>✅ 会用石头</li>
+          <li><strong>视觉：</strong>三色立体视觉</li>
+          <li><strong>叫声种类：</strong>30+种</li>
+          <li><strong>特殊技能：</strong>泡温泉/洗红薯</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="compare-conclusion">
+      <h3>🏆 各有所长</h3>
+      <p>鸡胜在<strong>数量</strong>和<strong>视觉</strong>——地球上数量最多的鸟类，能看到紫外线；猴胜在<strong>智力</strong>和<strong>工具使用</strong>——能使用工具、传递文化，是除猿类外最聪明的动物之一。两者都是演化史上的成功典范！</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 每日趣闻区域 ===== -->
+<section class="daily-section" id="daily">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <h2 class="section-title">每日趣闻</h2>
+      <p class="section-desc">每天一条新鲜知识 · 全年 365 天不断更</p>
+    </div>
+
+    <div class="daily-layout">
+      <!-- 今日 -->
+      <div class="daily-main">
+        <div class="daily-feature-card" id="dailyFeatureCard">
+          <div class="daily-feature-header">
+            <span class="daily-feature-date" id="featureDate"></span>
+            <span class="daily-feature-cat" id="featureCat"></span>
+          </div>
+          <div class="daily-feature-emoji" id="featureEmoji"></div>
+          <h3 id="featureTitle"></h3>
+          <p id="featureBody"></p>
+        </div>
+      </div>
+
+      <!-- 近期列表 -->
+      <div class="daily-sidebar">
+        <h4>📜 近期趣闻</h4>
+        <div class="daily-list" id="dailyList">
+          <!-- 由 JS 填充 -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 最新资讯 ===== -->
+<section class="news-section" id="news">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">📰</div>
+      <h2 class="section-title">最新资讯</h2>
+      <p class="section-desc">追踪鸡与猴子的最新科研发现、保护动态和行业新闻 · 持续更新</p>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <!-- 由 JS 从 daily.js 动态填充 -->
+    </div>
+    <div class="news-empty" id="newsEmpty" style="display:none;">
+      <p>📭 暂无资讯，请稍后再来查看</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 趣味问答 ===== -->
+<section class="quiz-section" id="quiz">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-icon">🧠</div>
+      <h2 class="section-title">趣味问答</h2>
+      <p class="section-desc">测测你对鸡和猴子的了解有多少？</p>
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-progress">
+        <span id="quizProgress">第 1 / 8 题</span>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <div class="quiz-question" id="quizQuestion"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" id="quizNext" style="display:none;">下一题 →</button>
+      </div>
+      <div class="quiz-result" id="quizResult" style="display:none;">
+        <h3 id="resultTitle"></h3>
+        <p id="resultText"></p>
+        <button class="btn btn-primary" id="quizRestart">再玩一次 🔄</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>🐔🐒 鸡与猴百科</h4>
+        <p>专注于鸡和猴子的趣味科普平台，每天更新，带你从不同角度认识这两种神奇的动物。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#chicken">鸡的百科</a></li>
+          <li><a href="#monkey">猴子百科</a></li>
+          <li><a href="#daily">每日趣闻</a></li>
+          <li><a href="#news">最新资讯</a></li>
+          <li><a href="#quiz">趣味问答</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>关于本站</h4>
+        <p>📅 每日自动更新内容</p>
+        <p>🔬 基于科学研究整理</p>
+        <p>❤️ 热爱动物，保护自然</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 鸡与猴百科 · 用知识连接人与自然 · 内容仅供科普参考</p>
+    </div>
+  </div>
+</footer>
+
+<!-- 返回顶部 -->
+<button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+
+<script src="js/daily.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
